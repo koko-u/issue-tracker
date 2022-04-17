@@ -12,6 +12,7 @@ spring:
       schema-locations: classpath:database/schema.sql
       data-locations: classpath:database/data.sql
       encoding: utf-8
+
 doma:
   dialect: mysql
   exception-translation-enabled: true
