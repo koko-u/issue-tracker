@@ -51,6 +51,9 @@ dependencies {
     implementation "org.seasar.doma.boot:doma-spring-boot-starter:${domaSpringBootVersion}"
     // mysql
     runtimeOnly 'mysql:mysql-connector-java'
+    // spring security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
     // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -58,6 +61,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     // Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 domaCodeGen {
