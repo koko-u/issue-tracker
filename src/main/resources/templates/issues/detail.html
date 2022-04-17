@@ -6,20 +6,21 @@
     <title>Issue Detail | Issue Tracking</title>
 </head>
 <body>
-<h1 th:text="${pageTitle}">
-    Issue Detail
-</h1>
-<div>
-    <a th:href="@{/issues}">Back to List</a>
-</div>
-<div th:object="${issue}">
-    <h2 th:text="*{summary}">(summary)</h2>
-    <p th:text="*{description}" th:unless="${#strings.isEmpty(issue.description)}">
-        (description)
-    </p>
-    <p th:if="${#strings.isEmpty(issue.description)}">
-        [no description]
-    </p>
+<nav th:replace="~{fragments/_navbar :: navbar}">Navbar</nav>
+<div class="container-fluid">
+    <h1 th:text="${pageTitle}">
+        Issue Detail
+    </h1>
+
+    <div th:object="${issue}">
+        <h2 th:text="*{summary}">(summary)</h2>
+        <p th:text="*{description}" th:unless="${#strings.isEmpty(issue.description)}">
+            (description)
+        </p>
+        <p th:if="${#strings.isEmpty(issue.description)}">
+            [no description]
+        </p>
+    </div>
 </div>
 
 

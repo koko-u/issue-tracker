@@ -6,15 +6,12 @@
     <title>Top Page | Issue Tracking</title>
 </head>
 <body>
-<h1>
-    Issue Tracking Application
-</h1>
-
-<ul>
-    <li>
-        <a th:href="@{/issues}">Issue List</a>
-    </li>
-</ul>
+<nav th:replace="~{fragments/_navbar :: navbar}">Navbar</nav>
+<div class="container-fluid">
+    <h1>
+        Issue Tracking Application
+    </h1>
+</div>
 
 
 <th:block th:replace="~{fragments/_livereload :: live-reload}"></th:block>
