@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head (pageName)" th:with="appName=(${appName} ?: '')">
+    <meta charset="UTF-8">
+    <title th:if="${#strings.isEmpty(appName)}" th:text="${pageName}">Title</title>
+    <title th:unless="${#strings.isEmpty(appName)}" th:text="${pageName} + ' | ' + ${appName}">Title</title>
+</head>
+<body>
+</body>
+</html>

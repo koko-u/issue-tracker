@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/_head :: head (appName = 'Issue Tracking',
+                                             pageName = 'Issue Tracking')}">
+    <title>Top Page | Issue Tracking</title>
+</head>
+<body>
+<h1>
+    Issue Tracking Application
+</h1>
+
+<ul>
+    <li>
+        <a th:href="@{/issues}">Issue List</a>
+    </li>
+</ul>
+
+
+<th:block th:replace="~{fragments/_livereload :: live-reload}"></th:block>
+</body>
+</html>

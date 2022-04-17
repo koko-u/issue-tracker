@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/_head :: head (appName = 'Issue Tracking',
+                                             pageName = ${pageTitle})}">
+    <title>Issue Detail | Issue Tracking</title>
+</head>
+<body>
+<h1>
+    Issue Detail
+</h1>
+<div>
+    <a th:href="@{/issues}">Back to List</a>
+</div>
+<div th:object="${issue}">
+    <h2 th:text="*{summary}">(summary)</h2>
+    <p th:text="*{description}" th:unless="${#strings.isEmpty(issue.description)}">
+        (description)
+    </p>
+    <p th:if="${#strings.isEmpty(issue.description)}">
+        [no description]
+    </p>
+</div>
+
+
+<th:block th:replace="~{fragments/_livereload :: live-reload}"></th:block>
+</body>
+</html>

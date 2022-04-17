@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/_head :: head (appName = 'Issue Tracking',
+                                             pageName = ${pageTitle})}">
+    <title>Issues List | Issue Tracking</title>
+</head>
+<body>
+<h1>
+    Issues List
+</h1>
+
+<div>
+    <a th:href="@{/}">Top Page</a>
+    <a th:href="@{/issues/create}">New Issue</a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Summary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="issue : ${issueList}">
+        <td th:text="${issue.id}">(id)</td>
+        <td>
+            <a th:href="@{/issues/{issueId}(issueId=${issue.id})}">
+                <span th:text="${issue.summary}">(summary)</span>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<th:block th:replace="~{fragments/_livereload :: live-reload}"></th:block>
+</body>
+</html>

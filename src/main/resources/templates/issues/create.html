@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/_head :: head (appName = 'Issue Tracking',
+                                             pageName = ${pageTitle})}">
+    <title>Top Page | Issue Tracking</title>
+</head>
+<body>
+<h1>
+    Create Issue
+</h1>
+
+<form th:action="@{/issues/create}" method="POST" th:object="${issueForm}">
+    <div>
+        <label for="summary">Summary: &nbsp;</label>
+    </div>
+    <div>
+        <input id="summary" th:field="*{summary}" type="text" style="width: 25%;">
+        <span th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}">(error)</span>
+    </div>
+    <br>
+    <div>
+        <label for="description">Description</label>
+    </div>
+    <div>
+        <textarea id="description" th:field="*{description}" rows="10"
+                  style="width: 25%;"></textarea>
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}">(error)</span>
+    </div>
+    <div>
+        <button type="submit">Create Issue</button>
+    </div>
+</form>
+
+<th:block th:replace="~{fragments/_livereload :: live-reload}"></th:block>
+</body>
+</html>

@@ -1,0 +1,17 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/its
+    username: user1
+    password: YarR0XW,+t
+  sql:
+    init:
+      mode: never
+      schema-locations: classpath:database/schema.sql
+      data-locations: classpath:database/data.sql
+      encoding: utf-8
+doma:
+  dialect: mysql
+  exception-translation-enabled: true

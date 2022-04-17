@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        // specify your JDBC driver
+        classpath 'mysql:mysql-connector-java:8.0.28'
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.6.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    // doma
+    id 'org.seasar.doma.compile' version '1.1.1-beta1'
+    id 'org.seasar.doma.codegen' version '1.4.1'
+}
+
+group = 'jp.co.kokou'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_17
+
+def domaVersion = '2.51.0'
+def domaSpringBootVersion = '1.6.0'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // Validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    // Thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // doma
+    annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
+    implementation "org.seasar.doma:doma-core:${domaVersion}"
+    implementation "org.seasar.doma:doma-slf4j:${domaVersion}"
+    implementation "org.seasar.doma.boot:doma-spring-boot-starter:${domaSpringBootVersion}"
+    // mysql
+    runtimeOnly 'mysql:mysql-connector-java'
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    // Dev Tools
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+domaCodeGen {
+    dev {
+        url = 'jdbc:mysql://localhost:3306/its'
+        user = 'user1'
+        password = 'YarR0XW,+t'
+        entity {
+            packageName = 'jp.co.kokou.issuetracker.domain'
+        }
+        dao {
+            packageName = 'jp.co.kokou.issuetracker.dao'
+        }
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
