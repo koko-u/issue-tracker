@@ -49,6 +49,10 @@
                 </li>
             </ul>
         </div>
+
+        <form th:action="@{/auth/logout}" method="POST" class="d-flex">
+            <button type="submit" class="btn btn-light text-secondary">Logout</button>
+        </form>
     </div>
 </nav>
 </body>

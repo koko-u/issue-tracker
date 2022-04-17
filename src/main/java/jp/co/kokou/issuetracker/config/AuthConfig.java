@@ -15,7 +15,7 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/css/**", "/js/**").permitAll()
                 .mvcMatchers("/issues/**").authenticated()
                 .and()
-                .formLogin()
+                .formLogin().usernameParameter("username").passwordParameter("password")
                 .loginPage("/auth/login").permitAll()
                 .and()
                 .logout()
