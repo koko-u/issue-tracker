@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta charset="utf-8">
@@ -50,9 +51,15 @@
             </ul>
         </div>
 
-        <form th:action="@{/auth/logout}" method="POST" class="d-flex">
-            <button type="submit" class="btn btn-light text-secondary">Logout</button>
-        </form>
+        <div class="d-flex">
+            <a th:href="@{/auth/login}" class="nav-link text-secondary">
+                Login
+            </a>
+            <form th:action="@{/auth/logout}" method="POST">
+                <button type="submit" class="btn btn-light text-secondary">Logout</button>
+            </form>
+        </div>
+
     </div>
 </nav>
 </body>
