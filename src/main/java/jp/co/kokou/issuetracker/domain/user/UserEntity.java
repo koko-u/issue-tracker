@@ -1,4 +1,4 @@
-package jp.co.kokou.issuetracker.domain.auth;
+package jp.co.kokou.issuetracker.domain.user;
 
 import lombok.*;
 import org.seasar.doma.Entity;

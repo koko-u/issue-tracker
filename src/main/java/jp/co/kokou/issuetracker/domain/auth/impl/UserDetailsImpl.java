@@ -1,6 +1,6 @@
 package jp.co.kokou.issuetracker.domain.auth.impl;
 
-import jp.co.kokou.issuetracker.domain.auth.UserEntity;
+import jp.co.kokou.issuetracker.domain.user.UserEntity;
 import org.springframework.security.core.userdetails.User;
 
 import java.util.Collections;
