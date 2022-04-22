@@ -48,6 +48,22 @@
                        th:classappend="${#request.requestURI == '/issues/create' ? 'active' : ''}"
                        th:href="@{/issues/create}">Create Issue</a>
                 </li>
+                <li class="nav-item dropdown ms-2">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       id="adminMenu"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Admin
+                    </a>
+                    <ul class="dropdown-menu"
+                        aria-labelledby="adminMenu">
+                        <li>
+                            <a class="dropdown-item" href="#" th:href="@{/users}">User List</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
