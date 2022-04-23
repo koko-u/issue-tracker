@@ -12,6 +12,8 @@ spring:
       schema-locations: classpath:database/schema.sql
       data-locations: classpath:database/data.sql
       encoding: utf-8
+  messages:
+    basename: i18n/messages,i18n/validationMessages
 
 doma:
   dialect: mysql

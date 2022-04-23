@@ -54,6 +54,9 @@ dependencies {
     // spring security
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+    // nbvcxz (password strength calculator)
+    implementation 'me.gosimple:nbvcxz:1.5.0'
+
     // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -80,4 +83,10 @@ domaCodeGen {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+bootRun {
+    if (project.hasProperty('args')) {
+        args project.args.split(',')
+    }
 }

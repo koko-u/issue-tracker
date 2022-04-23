@@ -1,0 +1,4 @@
+logging:
+  level:
+    root: INFO
+    jp.co.kokou.issuetracker: DEBUG
