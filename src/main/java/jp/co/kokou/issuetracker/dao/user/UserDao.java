@@ -2,6 +2,7 @@ package jp.co.kokou.issuetracker.dao.user;
 
 import jp.co.kokou.issuetracker.domain.user.UserEntity;
 import org.seasar.doma.Dao;
+import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.boot.ConfigAutowireable;
 
@@ -17,4 +18,7 @@ public interface UserDao {
 
     @Select
     List<UserEntity> selectAll();
+
+    @Insert
+    int insert(UserEntity user);
 }
