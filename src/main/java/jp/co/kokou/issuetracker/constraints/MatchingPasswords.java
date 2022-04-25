@@ -24,11 +24,11 @@ public @interface MatchingPasswords {
     @Target({ FIELD, METHOD})
     @Retention(RUNTIME)
     @Documented
-    public @interface Password {
+    @interface Password {
     }
     @Target({ FIELD, METHOD})
     @Retention(RUNTIME)
     @Documented
-    public @interface PasswordConfirm {
+    @interface PasswordConfirm {
     }
 }

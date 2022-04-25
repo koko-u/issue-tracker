@@ -1,6 +1,5 @@
 package jp.co.kokou.issuetracker.config;
 
-import jp.co.kokou.issuetracker.domain.auth.impl.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
