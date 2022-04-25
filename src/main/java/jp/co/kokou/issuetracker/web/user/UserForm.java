@@ -3,6 +3,7 @@ package jp.co.kokou.issuetracker.web.user;
 import jp.co.kokou.issuetracker.constraints.EnoughComplexity;
 import jp.co.kokou.issuetracker.constraints.MatchingPasswords;
 import jp.co.kokou.issuetracker.constraints.OnlyAlphanumerical;
+import jp.co.kokou.issuetracker.constraints.UniqueKey;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
@@ -14,6 +15,7 @@ import javax.validation.constraints.NotBlank;
 @EqualsAndHashCode
 @ToString
 @MatchingPasswords
+@UniqueKey("username")
 public class UserForm {
     @NotBlank
     @OnlyAlphanumerical

@@ -16,6 +16,15 @@
 <body>
 <nav th:replace="~{fragments/_navbar :: navbar}">Navbar</nav>
 <div class="container-fluid">
+    <div class="row mt-3" th:if="${criticalError}">
+        <div class="col-4 offset-1">
+            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                <th:block th:text="${criticalError}">A simple success alert—check it out!</th:block>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-4 offset-1">
             <h1 th:text="${pageTitle}">

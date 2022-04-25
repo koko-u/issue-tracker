@@ -10,6 +10,8 @@ import org.seasar.doma.jdbc.UniqueConstraintException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import java.util.Objects;
 
@@ -41,6 +43,9 @@ public class UserServiceImpl implements UserService {
         } catch (UniqueConstraintException e) {
             log.error("{}", e.getMessage());
             log.error("SQL: {}", e.getFormattedSql());
+            return null;
+        } catch (RuntimeException e) {
+            log.error("{}", e.getMessage());
             return null;
         }
     }

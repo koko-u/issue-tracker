@@ -2,14 +2,10 @@ package jp.co.kokou.issuetracker.constraints;
 
 import lombok.SneakyThrows;
 
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class MatchingPasswordsValidator implements ConstraintValidator<MatchingPasswords, Object> {
     @Override
