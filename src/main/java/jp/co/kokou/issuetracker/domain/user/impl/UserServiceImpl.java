@@ -7,6 +7,7 @@ import jp.co.kokou.issuetracker.web.user.UserForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.seasar.doma.jdbc.UniqueConstraintException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.Objects;
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public List<UserEntity> getUserList() {
@@ -34,7 +36,7 @@ public class UserServiceImpl implements UserService {
         try {
             var entity = new UserEntity();
             entity.setUsername(user.getUsername());
-            entity.setPassword(user.getPassword());
+            entity.setPassword(passwordEncoder.encode(user.getPassword()));
             userDao.insert(entity);
             return entity;
         } catch (UniqueConstraintException e) {

@@ -2,6 +2,7 @@ package jp.co.kokou.issuetracker.dao.user;
 
 import jp.co.kokou.issuetracker.domain.user.UserEntity;
 import org.seasar.doma.Dao;
+import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.boot.ConfigAutowireable;
@@ -32,4 +33,7 @@ public interface UserDao {
 
     @Insert
     int insert(UserEntity user);
+
+    @Delete(sqlFile = true)
+    int deleteByUsername(String username);
 }
